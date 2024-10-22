@@ -732,6 +732,15 @@ public:
         return mowb.track;
     }
 };
+// string get_space(int count){
+//     string temp="            ";
+//     string ans=;
+//     while(count-->0){
+//         ans+=temp;
+//     }
+//     return ans;
+// 
+// }
 
 class RN
 {
@@ -842,7 +851,7 @@ public:
                 string p_c = ex_stage.exmo.track;
                 //  cout<<"traker-execute"<<p_c<<endl;
                 int pc1 = stoll(p_c, nullptr, 2);
-                clock_cycle[pc1].push_back("|Id/Ex| [ Execute ]  ->");
+                clock_cycle[pc1].push_back("  |Id/Ex| [ Execute ]  ->");
 
                 if (ex_stage.exmo.CW.Branch)
                 {
@@ -901,14 +910,17 @@ public:
                 cout<<"             | Cc"<<i<<" |      ";
             }
             cout<<endl;
+            int padding=0;
              for(auto it:clock_cycle){
                   cout<<endl;
                   int ins=it.first;
                   cout<<"Instr."<<ins/4<<" :: ";
+                  cout << string(padding, ' ');
                 for(auto itr:it.second){
 
                     cout<<itr<<" ";
                 }
+                padding+=25;
                 cout<<endl;
              }
                     count++;
@@ -921,7 +933,7 @@ public:
                     string p_c = id_stage.idex.track;
                     //    cout<<"traker-decode"<<p_c<<endl;
                     int pc1 = stoll(p_c, nullptr, 2);
-                    clock_cycle[pc1].push_back("|If/Id| [ Decode ]  ->");
+                    clock_cycle[pc1].push_back("  |If/Id| [ Decode ]  ->");
                 }
 
                 if (id_stage.idex.CW.jump)
@@ -961,7 +973,8 @@ public:
                     string p_c = if_stage.ifid.track;
                     //   cout<<"traker-fetch"<<p_c<<endl;
                     int pc1 = stoll(pc, nullptr, 2);
-                    clock_cycle[pc1].push_back("|Pc| [ Fetch ] ->");
+                    // string space=get_space(count);
+                    clock_cycle[pc1].push_back("  | Pc |   [ Fetch ] -> ");
                 }
                 if (control_hazard_check)
                 {
@@ -981,15 +994,17 @@ public:
                 cout<<"             | Cc"<<i<<" |      ";
             }
             cout<<endl;
-            
+            int padding=0;
              for(auto it:clock_cycle){
                   cout<<endl;
                   int ins=it.first;
                   cout<<"Instr."<<ins/4<<" :: ";
+                  cout << string(padding, ' ');
                 for(auto itr:it.second){
 
                     cout<<itr<<" ";
                 }
+                padding+=25;
                 cout<<endl;
              }
 
@@ -1012,6 +1027,7 @@ public:
                     // cout << "write  " << write_check << endl;
                     cout << "------------------------------------------------------------------------------------" << endl;
                     cout << endl;
+                     int padding = 0;
                     for (int i = 1; i <= count; i++)
                     {
                         if (count == 1)
@@ -1025,11 +1041,13 @@ public:
                         cout << endl;
                         int ins = it.first;
                         cout << "Instr." << ins / 4 << " :: ";
+                        cout << string(padding, ' ');
                         for (auto itr : it.second)
                         {
 
                             cout << itr << " ";
                         }
+                         padding += 25;
                         cout << endl;
                     }
 
@@ -1071,16 +1089,20 @@ public:
                     cout << "             | Cc" << i << " |      ";
             }
             cout << endl;
+            int padding = 0;
             for (auto it : clock_cycle)
             {
                 cout << endl;
                 int ins = it.first;
                 cout << "Instr." << ins / 4 << " :: ";
+                
+                cout << string(padding, ' ');
                 for (auto itr : it.second)
                 {
 
                     cout << itr << " ";
                 }
+                padding += 25;
                 cout << endl;
             }
 
