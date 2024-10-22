@@ -1,0 +1,589 @@
+Intially GPR
+00101---7
+00110---10
+01000---5
+01001---4
+====================================================================================
+*************** Iteration no.1   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  0
+execute  0
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.2   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.3   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memory  1
+write  0
+====================================================================================
+*************** Iteration no.4   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  1
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memoru  1
+write  1
+====================================================================================
+*************** Iteration no.5   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  1
+write  1
+Hazard detected, stalling...
+====================================================================================
+*************** Iteration no.5   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  1
+write  1
+Hazard detected, stalling...
+====================================================================================
+*************** Iteration no.5   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  1
+Ending ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.6   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+pc : 00000000000000000000000000001100
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.7   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.8   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memoru  1
+write  0
+====================================================================================
+*************** Iteration no.9   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  1
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memoru  1
+write  1
+====================================================================================
+*************** Iteration no.10   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  1
+write  1
+Hazard detected, stalling...
+====================================================================================
+*************** Iteration no.10   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  1
+Ending ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.11   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+pc : 00000000000000000000000000001100
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.12   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.13   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memoru  1
+write  0
+====================================================================================
+*************** Iteration no.14   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  1
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memoru  1
+write  1
+====================================================================================
+*************** Iteration no.15   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  1
+write  1
+Hazard detected, stalling...
+====================================================================================
+*************** Iteration no.15   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  1
+Ending ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.16   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+pc : 00000000000000000000000000001100
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.17   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.18   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memoru  1
+write  0
+====================================================================================
+*************** Iteration no.19   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  1
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memoru  1
+write  1
+====================================================================================
+*************** Iteration no.20   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  1
+write  1
+Hazard detected, stalling...
+====================================================================================
+*************** Iteration no.20   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  1
+Ending ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.21   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+pc : 00000000000000000000000000001100
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.22   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.23   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memoru  1
+write  0
+====================================================================================
+*************** Iteration no.24   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  1
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memoru  1
+write  1
+====================================================================================
+*************** Iteration no.25   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  1
+write  1
+Hazard detected, stalling...
+====================================================================================
+*************** Iteration no.25   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  1
+Ending ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.26   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+pc : 00000000000000000000000000001100
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.27   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.28   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  0
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  1
+memoru  1
+write  0
+====================================================================================
+*************** Iteration no.29   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  1
+memory  1
+write  0
+Control Hazard detected wait till the result 
+------------------------ At the End   -------------------
+fetch  1
+decode  1
+execute  0
+memoru  1
+write  1
+====================================================================================
+*************** Iteration no.30   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  1
+write  1
+Hazard detected, stalling...
+====================================================================================
+*************** Iteration no.30   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  1
+execute  0
+memory  0
+write  1
+Ending ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.31   ***************
+----------------  Starting  ---------------
+fetch  1
+decode  0
+execute  1
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  0
+decode  1
+execute  0
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.32   ***************
+----------------  Starting  ---------------
+fetch  0
+decode  1
+execute  0
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  0
+decode  0
+execute  1
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.33   ***************
+----------------  Starting  ---------------
+fetch  0
+decode  0
+execute  1
+memory  0
+write  0
+------------------------ At the End   -------------------
+fetch  0
+decode  0
+execute  0
+memory  1
+write  0
+====================================================================================
+*************** Iteration no.34   ***************
+----------------  Starting  ---------------
+fetch  0
+decode  0
+execute  0
+memory  1
+write  0
+writing in Data Memory 
+------------------------ At the End   -------------------
+fetch  0
+decode  0
+execute  0
+memory  0
+write  1
+====================================================================================
+*************** Iteration no.35   ***************
+----------------  Starting  ---------------
+fetch  0
+decode  0
+execute  0
+memory  0
+write  1
+------------------------ At the End   -------------------
+fetch  0
+decode  0
+execute  0
+memory  0
+write  0
+====================================================================================
+*************** Iteration no.36   ***************
+ ==================  Completed DONE 👍🎇  ========================
+Finally GPR
+00000---0
+00001---0
+00010---6
+00011---6
+00100---120
+00101---7
+00110---10
+01000---5
+01001---4
+01100---0
