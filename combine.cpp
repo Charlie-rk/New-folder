@@ -15,16 +15,18 @@ public:
     string get_Opcode(string &operation);
     string get_func3(string &operation);
     string get_funct7(string &operation);
-    int get_immediate_addi(string &line, bool addi,string &type);
+    int get_immediate_addi(string &line, bool addi, string &type);
 };
 
-int ASSEMBLER::get_immediate_addi(string &line, bool addi,string &type)
-{    if(type=="R"){
-    return 0;
-}
+int ASSEMBLER::get_immediate_addi(string &line, bool addi, string &type)
+{
+    if (type == "R")
+    {
+        return 0;
+    }
     string ans = "";
     // cout<<line<<endl;
-    for (int i = line.size()-1; i >= 0; i--)
+    for (int i = line.size() - 1; i >= 0; i--)
     {
         if (line[i] == ',')
         {
@@ -146,10 +148,10 @@ public:
                  << machine_code[0] << " | " << machine_code.substr(1, 10) << " | " << machine_code[11] << " | " << machine_code.substr(12, 8) << " | " << machine_code.substr(20, 5) << " | " << machine_code.substr(25, 7) << endl;
         }
     }
-    string generate_machine_code( string &type, string &line, string &operation)
+    string generate_machine_code(string &type, string &line, string &operation)
     {
         string ans;
-        int immediate = assembler.get_immediate_addi(line, type == "S",type);
+        int immediate = assembler.get_immediate_addi(line, type == "S", type);
         string immediate_val = assembler.decimal_To_Binary(immediate);
         vector<int> reg = assembler.get_register(line);
         string rs1, rs2, rd;
@@ -161,10 +163,10 @@ public:
             rs2 = assembler.decimal_To_Binary(reg[2]);
         // Apply the right shift for SB and UJ types
         if (type == "SB" || type == "UJ")
-         { 
-            immediate = immediate/2;// Right shift the immediate value by 1
+        {
+            immediate = immediate / 2; // Right shift the immediate value by 1
             //  cout<<immediate<<endl;
-        
+
             immediate_val = assembler.decimal_To_Binary(immediate);
         }
         if (type == "R")
@@ -202,12 +204,12 @@ public:
             }
             else
             {
-                immediate_val = immediate_val.substr(0, 1) + immediate_val.substr(2, 6) + rs1+rd+ assembler.get_func3(operation) + immediate_val.substr(8, 4) + immediate_val[1];
+                immediate_val = immediate_val.substr(0, 1) + immediate_val.substr(2, 6) + rs1 + rd + assembler.get_func3(operation) + immediate_val.substr(8, 4) + immediate_val[1];
                 ans = immediate_val + assembler.get_Opcode(operation);
             }
         }
         else if (type == "U")
-        {  
+        {
             assembler.binary_extend(immediate_val, 32);
             //  cout<<immediate_val<<endl;
             assembler.binary_extend(rd, 5);
@@ -237,7 +239,7 @@ void read_assembly_write_machine(const string &filename, ofstream &outFile)
     {
         stringstream ss(line);
         string operation = as.get_Operation(line);
-        string type = as.get_type(operation);  // type if Instructiion on the basis of Opearion 
+        string type = as.get_type(operation); // type if Instructiion on the basis of Opearion
         string machine_code_local = check.generate_machine_code(type, line, operation);
         // check.print_machine_code(type, machine_code_local);
         machine_Code.push_back(machine_code_local);
@@ -247,9 +249,7 @@ void read_assembly_write_machine(const string &filename, ofstream &outFile)
     inputFile.close();
 }
 
-
-// cpu 
-
+// cpu
 
 map<string, int> GPR;
 map<string, int> MEMORY;
@@ -272,10 +272,9 @@ void init()
 }
 void DM_init()
 {
-    MEMORY[binary(5)] = 1; // change to 1 for factorial 
-    MEMORY[binary(6)] = 6; // n + 1 for facotrial on n or sum of n natural n 
+    MEMORY[binary(5)] = 1; // change to 1 for factorial
+    MEMORY[binary(6)] = 6; // n + 1 for facotrial on n or sum of n natural n
 }
-
 
 map<string, string> instruction_Set;
 
@@ -514,6 +513,7 @@ struct IFID
     string IR;
     string DPC;
     string NPC;
+    string track;
 };
 
 struct IDEX
@@ -522,6 +522,7 @@ struct IDEX
     int rs1, rs2;
     ControlUnit CW;
     string rsl2;
+    string track;
 };
 
 struct EXMO
@@ -531,6 +532,7 @@ struct EXMO
     string rdl;
     int rs2;
     int flag;
+    string track;
 };
 
 struct MOWB
@@ -538,6 +540,7 @@ struct MOWB
     int LDOUT, ALUOUT;
     ControlUnit CW;
     string rdl;
+    string track;
 };
 
 class InstructionFetch
@@ -556,6 +559,7 @@ public:
         string npc = bitset.to_string();
         ifid.NPC = npc; // 1 -> 4
         // cout << "Finished" << endl;
+        ifid.track = PC;
     }
     bool checkHazard()
     {
@@ -626,6 +630,7 @@ public:
         idex.func3 = IM.funct3;
         idex.func7 = IM.funct7;
         idex.rsl2 = IM.RSL2;
+        idex.track = ifid.track;
 
         // cout << "Finished Decode" << endl;
     }
@@ -656,6 +661,7 @@ public:
         exmo.rs2 = GPR[idex.rsl2]; // update rs2 here after execution
         exmo.rdl = idex.rdl;
         exmo.flag = flag;
+        exmo.track = idex.track;
     }
 };
 
@@ -693,6 +699,7 @@ public:
         mowb.ALUOUT = exmo.ALUOUT;
         mowb.CW = exmo.CW;
         mowb.rdl = exmo.rdl;
+        mowb.track = exmo.track;
     }
 };
 
@@ -701,14 +708,14 @@ class WriteBack
 {
 public:
     WriteBack() {}
-    void writeBack(MOWB &mowb, EXMO &exmo)
-    {    
+    string writeBack(MOWB &mowb, EXMO &exmo)
+    {
         // cout<<"RD=== "<<mowb.rdl <<endl;
-       
+
         if (mowb.CW.RegWrite)
         {
             if (mowb.CW.Mem2Reg)
-            {    
+            {
                 //  cout<<"value ==="<<mowb.LDOUT<<endl;
                 GPR[mowb.rdl] = mowb.LDOUT; // Write memory data to register
             }
@@ -718,10 +725,11 @@ public:
                 GPR[mowb.rdl] = mowb.ALUOUT; // Write ALU result to register
             }
         }
-        if(exmo.rdl==mowb.rdl){
-                  exmo.rdl = "";
+        if (exmo.rdl == mowb.rdl)
+        {
+            exmo.rdl = "";
         }
-      
+        return mowb.track;
     }
 };
 
@@ -755,11 +763,13 @@ public:
         bool write_check = false;
         int count = 1;
         bool control_hazard_check = false;
+        map<int, vector<string>> clock_cycle;
+        // vector<string> steps={"fetch","decode","execute","memory","write"};
         while (true)
-        {    
-            cout<<"===================================================================================="<<endl;
-            cout << "*************** Iteration no."  << count <<"   ***************"<<endl;  
-
+        {
+            cout << endl;
+            cout << "====================================================================================" << endl;
+            cout << "                --- Iteration no../ Clock Cycle " << count << " ----                 " << endl;
             //    if_stage.fetch(pc);
             //    id_stage.decode(if_stage.ifid);
             //    ex_stage.execute(id_stage.idex);
@@ -771,18 +781,38 @@ public:
                 break;
             }
 
+            //  int pc1=stoll(pc,nullptr,2);
+            // //  cout<<"check rk "<<pc1<<endl;
+            //  if(fetch_check){
+            //     clock_cycle[pc1].push_back("fetch");
+            //  }
+            //  if(decode_check){
+            //     clock_cycle[pc1].push_back("deode");
+            //  }
+            //  if(execute_check){
+            //     clock_cycle[pc1].push_back("execute");
+            //  }
+            //  if(memory_check){
+            //     clock_cycle[pc1].push_back("memory");
+            //  }
+            //  if(write_check){
+            //     clock_cycle[pc1].push_back("write");
+            //  }
 
-            cout << "----------------  Starting  ---------------" << endl;
-            cout << "fetch  " << fetch_check << endl;
-            cout << "decode  " << decode_check << endl;
-            cout << "execute  " << execute_check << endl;
-            cout << "memory  " << memory_check << endl;
-            cout << "write  " << write_check << endl;
+            // cout << "----------------  Starting  ---------------" << endl;
+            // cout << "fetch  " << fetch_check << endl;
+            // cout << "decode  " << decode_check << endl;
+            // cout << "execute  " << execute_check << endl;
+            // cout << "memory  " << memory_check << endl;
+            // cout << "write  " << write_check << endl;
             // cout<<"fetch"<<fetch_check<<endl;
             if (write_check)
             {
                 // cout <<" ==============        write        ==============" << endl;
-                wb_stage.writeBack(mem_stage.mowb, ex_stage.exmo);
+                string p_c = wb_stage.writeBack(mem_stage.mowb, ex_stage.exmo);
+                //  cout<<"traker-write"<<p_c<<endl;
+                int pc1 = stoll(p_c, nullptr, 2);
+                clock_cycle[pc1].push_back("|Mo/Wb| [ Write ]  |<>| ");
             }
             else
             {
@@ -794,6 +824,10 @@ public:
                 // cout << " ==============      memory      =============="  << endl;
                 mem_stage.memAccess(ex_stage.exmo);
                 write_check = true;
+                string p_c = mem_stage.mowb.track;
+                //  cout<<"traker-memory"<<p_c<<endl;
+                int pc1 = stoll(p_c, nullptr, 2);
+                clock_cycle[pc1].push_back("|Ex/Mo| [ Memory ] ->");
             }
             else
             {
@@ -805,6 +839,10 @@ public:
                 // cout << "==============     execute     ==============" << endl;
                 ex_stage.execute(id_stage.idex);
                 memory_check = true;
+                string p_c = ex_stage.exmo.track;
+                //  cout<<"traker-execute"<<p_c<<endl;
+                int pc1 = stoll(p_c, nullptr, 2);
+                clock_cycle[pc1].push_back("|Id/Ex| [ Execute ]  ->");
 
                 if (ex_stage.exmo.CW.Branch)
                 {
@@ -828,7 +866,7 @@ public:
                     {
                         memory_check = false;
                         int pc1 = stoll(pc, nullptr, 2);
-                        cout << "pc : " << pc << endl;
+                        // cout << "pc : " << pc << endl;
                         bitset<32> bitset(pc1 + 4);
                         pc = bitset.to_string();
                         if_stage.ifid.NPC = pc;
@@ -854,12 +892,36 @@ public:
                 {
                     execute_check = false; //
                     cout << "Hazard detected, stalling..." << endl;
+                     cout<<"------------------------------------------------------------------------------------"<<endl;
+            cout<<endl;
+            for(int i=1;i<=count;i++){
+                if(count==1)
+                cout<<"                     | Cc1 |       ";
+                else
+                cout<<"             | Cc"<<i<<" |      ";
+            }
+            cout<<endl;
+             for(auto it:clock_cycle){
+                  cout<<endl;
+                  int ins=it.first;
+                  cout<<"Instr."<<ins/4<<" :: ";
+                for(auto itr:it.second){
+
+                    cout<<itr<<" ";
+                }
+                cout<<endl;
+             }
+                    count++;
                     continue;
                 }
                 else
                 {
                     id_stage.decode(if_stage.ifid);
                     execute_check = true;
+                    string p_c = id_stage.idex.track;
+                    //    cout<<"traker-decode"<<p_c<<endl;
+                    int pc1 = stoll(p_c, nullptr, 2);
+                    clock_cycle[pc1].push_back("|If/Id| [ Decode ]  ->");
                 }
 
                 if (id_stage.idex.CW.jump)
@@ -896,16 +958,40 @@ public:
                 {
                     if_stage.fetch(pc);
                     decode_check = true;
+                    string p_c = if_stage.ifid.track;
+                    //   cout<<"traker-fetch"<<p_c<<endl;
+                    int pc1 = stoll(pc, nullptr, 2);
+                    clock_cycle[pc1].push_back("|Pc| [ Fetch ] ->");
                 }
                 if (control_hazard_check)
                 {
                     decode_check = false;
-                      cout << "------------------------ At the End   -------------------" << endl;
-                    cout << "fetch  " << fetch_check << endl;
-                    cout << "decode  " << decode_check << endl;
-                    cout << "execute  " << execute_check << endl;
-                    cout << "memory  " << memory_check << endl;
-                    cout << "write  " << write_check << endl;
+                    //   cout << "------------------------ At the End   -------------------" << endl;
+                    // cout << "fetch  " << fetch_check << endl;
+                    // cout << "decode  " << decode_check << endl;
+                    // cout << "execute  " << execute_check << endl;
+                    // cout << "memory  " << memory_check << endl;
+                    // cout << "write  " << write_check << endl;
+                     cout<<"------------------------------------------------------------------------------------"<<endl;
+            cout<<endl;
+            for(int i=1;i<=count;i++){
+                if(count==1)
+                cout<<"                     | Cc1 |       ";
+                else
+                cout<<"             | Cc"<<i<<" |      ";
+            }
+            cout<<endl;
+            
+             for(auto it:clock_cycle){
+                  cout<<endl;
+                  int ins=it.first;
+                  cout<<"Instr."<<ins/4<<" :: ";
+                for(auto itr:it.second){
+
+                    cout<<itr<<" ";
+                }
+                cout<<endl;
+             }
 
                     count++;
 
@@ -917,13 +1003,35 @@ public:
                 {
                     control_hazard_check = true;
                     cout << "Control Hazard detected wait till the result \n";
-                    //   decode_check=false;
-                    cout << "------------------------ At the End   -------------------" << endl;
-                    cout << "fetch  " << fetch_check << endl;
-                    cout << "decode  " << decode_check << endl;
-                    cout << "execute  " << execute_check << endl;
-                    cout << "memoru  " << memory_check << endl;
-                    cout << "write  " << write_check << endl;
+                    //   decode_check=false;------ not not change should be false
+                    // cout << "------------------------ At the End   -------------------" << endl;
+                    // cout << "fetch  " << fetch_check << endl;
+                    // cout << "decode  " << decode_check << endl;
+                    // cout << "execute  " << execute_check << endl;
+                    // cout << "memoru  " << memory_check << endl;
+                    // cout << "write  " << write_check << endl;
+                    cout << "------------------------------------------------------------------------------------" << endl;
+                    cout << endl;
+                    for (int i = 1; i <= count; i++)
+                    {
+                        if (count == 1)
+                            cout << "                     | Cc1 |       ";
+                        else
+                            cout << "             | Cc" << i << " |      ";
+                    }
+                    cout << endl;
+                    for (auto it : clock_cycle)
+                    {
+                        cout << endl;
+                        int ins = it.first;
+                        cout << "Instr." << ins / 4 << " :: ";
+                        for (auto itr : it.second)
+                        {
+
+                            cout << itr << " ";
+                        }
+                        cout << endl;
+                    }
 
                     count++;
 
@@ -947,35 +1055,58 @@ public:
                 //   decode_check=false;
             }
 
-            cout << "------------------------ At the End   -------------------" << endl;
-            cout << "fetch  " << fetch_check << endl;
-            cout << "decode  " << decode_check << endl;
-            cout << "execute  " << execute_check << endl;
-            cout << "memory  " << memory_check << endl;
-            cout << "write  " << write_check << endl;
+            // cout << "------------------------ At the End   -------------------" << endl;
+            // cout << "fetch  " << fetch_check << endl;
+            // cout << "decode  " << decode_check << endl;
+            // cout << "execute  " << execute_check << endl;
+            // cout << "memory  " << memory_check << endl;
+            // cout << "write  " << write_check << endl;
+            cout << "------------------------------------------------------------------------------------" << endl;
+            cout << endl;
+            for (int i = 1; i <= count; i++)
+            {
+                if (count == 1)
+                    cout << "                     | Cc1 |       ";
+                else
+                    cout << "             | Cc" << i << " |      ";
+            }
+            cout << endl;
+            for (auto it : clock_cycle)
+            {
+                cout << endl;
+                int ins = it.first;
+                cout << "Instr." << ins / 4 << " :: ";
+                for (auto itr : it.second)
+                {
+
+                    cout << itr << " ";
+                }
+                cout << endl;
+            }
 
             count++;
-
         }
     }
 };
 
 // to convert assebmbly to machine
 
-void Assembly_TO_Machine_step1(){
-        ofstream outFile("machine.txt");
+void Assembly_TO_Machine_step1()
+{
+    ofstream outFile("machine.txt");
     if (!outFile.is_open())
     {
         cerr << "Error opening output file: machine.txt" << endl;
-        return ;
+        return;
     }
     read_assembly_write_machine("assembly.txt", outFile);
     outFile.close();
 }
 
-void Cpu_simiulator_Run_step2(){
-     cout << "Intially GPR" << endl;
-      init();
+void Cpu_simiulator_Run_step2()
+{
+    cout << "Intially GPR" << endl;
+    init();
     DM_init();
     Read_GPR();
     string pc = binary(0);
@@ -986,15 +1117,12 @@ void Cpu_simiulator_Run_step2(){
 }
 
 int main()
-{ 
+{
 
-    freopen("output.txt","w",stdout);
+    freopen("output.txt", "w", stdout);
 
-      Assembly_TO_Machine_step1();
-      Cpu_simiulator_Run_step2();
-
+    Assembly_TO_Machine_step1();
+    Cpu_simiulator_Run_step2();
 
     return 0;
-    
 }
-

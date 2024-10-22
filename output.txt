@@ -3,578 +3,818 @@ Intially GPR
 00110---10
 01000---5
 01001---4
+
 ====================================================================================
-*************** Iteration no.1   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  0
-execute  0
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 1 ----                 
+------------------------------------------------------------------------------------
+
+                     | Cc1 |       
+
+Instr.0 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.2   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 2 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.1 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.3   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 3 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.2 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.4   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 4 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memoru  1
-write  1
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.3 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.5   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  1
-write  1
+                --- Iteration no../ Clock Cycle 5 ----                 
 Hazard detected, stalling...
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.3 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.5   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  1
-write  1
+                --- Iteration no../ Clock Cycle 6 ----                 
 Hazard detected, stalling...
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.3 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.5   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  1
-Ending ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 7 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.6   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
-pc : 00000000000000000000000000001100
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 8 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.7   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 9 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.8   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 10 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memoru  1
-write  0
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.9   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 11 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memoru  1
-write  1
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.10   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  1
-write  1
+                --- Iteration no../ Clock Cycle 12 ----                 
 Hazard detected, stalling...
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.10   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  1
-Ending ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 13 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.11   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
-pc : 00000000000000000000000000001100
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 14 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.12   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 15 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.13   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 16 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memoru  1
-write  0
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.14   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 17 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memoru  1
-write  1
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.15   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  1
-write  1
+                --- Iteration no../ Clock Cycle 18 ----                 
 Hazard detected, stalling...
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.15   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  1
-Ending ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 19 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.16   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
-pc : 00000000000000000000000000001100
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 20 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.17   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 21 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.18   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 22 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memoru  1
-write  0
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.19   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 23 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memoru  1
-write  1
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.20   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  1
-write  1
+                --- Iteration no../ Clock Cycle 24 ----                 
 Hazard detected, stalling...
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.20   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  1
-Ending ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 25 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.21   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
-pc : 00000000000000000000000000001100
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 26 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.22   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 27 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.23   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 28 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memoru  1
-write  0
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.24   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 29 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memoru  1
-write  1
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.25   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  1
-write  1
+                --- Iteration no../ Clock Cycle 30 ----                 
 Hazard detected, stalling...
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.25   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  1
-Ending ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 31 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.26   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
-pc : 00000000000000000000000000001100
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 32 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.27   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 33 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.28   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 34 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  1
-memoru  1
-write  0
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.29   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  1
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 35 ----                 
 Control Hazard detected wait till the result 
------------------------- At the End   -------------------
-fetch  1
-decode  1
-execute  0
-memoru  1
-write  1
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |                   | Cc35 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.30   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  1
-write  1
+                --- Iteration no../ Clock Cycle 36 ----                 
 Hazard detected, stalling...
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |                   | Cc35 |                   | Cc36 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.30   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  1
-execute  0
-memory  0
-write  1
-Ending ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 37 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |                   | Cc35 |                   | Cc36 |                   | Cc37 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.31   ***************
-----------------  Starting  ---------------
-fetch  1
-decode  0
-execute  1
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  0
-decode  1
-execute  0
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 38 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |                   | Cc35 |                   | Cc36 |                   | Cc37 |                   | Cc38 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.7 :: |Pc| [ Fetch ] -> 
+
 ====================================================================================
-*************** Iteration no.32   ***************
-----------------  Starting  ---------------
-fetch  0
-decode  1
-execute  0
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  0
-decode  0
-execute  1
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 39 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |                   | Cc35 |                   | Cc36 |                   | Cc37 |                   | Cc38 |                   | Cc39 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.7 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
 ====================================================================================
-*************** Iteration no.33   ***************
-----------------  Starting  ---------------
-fetch  0
-decode  0
-execute  1
-memory  0
-write  0
------------------------- At the End   -------------------
-fetch  0
-decode  0
-execute  0
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 40 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |                   | Cc35 |                   | Cc36 |                   | Cc37 |                   | Cc38 |                   | Cc39 |                   | Cc40 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.7 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
 ====================================================================================
-*************** Iteration no.34   ***************
-----------------  Starting  ---------------
-fetch  0
-decode  0
-execute  0
-memory  1
-write  0
+                --- Iteration no../ Clock Cycle 41 ----                 
 writing in Data Memory 
------------------------- At the End   -------------------
-fetch  0
-decode  0
-execute  0
-memory  0
-write  1
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |                   | Cc35 |                   | Cc36 |                   | Cc37 |                   | Cc38 |                   | Cc39 |                   | Cc40 |                   | Cc41 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.7 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> 
+
 ====================================================================================
-*************** Iteration no.35   ***************
-----------------  Starting  ---------------
-fetch  0
-decode  0
-execute  0
-memory  0
-write  1
------------------------- At the End   -------------------
-fetch  0
-decode  0
-execute  0
-memory  0
-write  0
+                --- Iteration no../ Clock Cycle 42 ----                 
+------------------------------------------------------------------------------------
+
+             | Cc1 |                   | Cc2 |                   | Cc3 |                   | Cc4 |                   | Cc5 |                   | Cc6 |                   | Cc7 |                   | Cc8 |                   | Cc9 |                   | Cc10 |                   | Cc11 |                   | Cc12 |                   | Cc13 |                   | Cc14 |                   | Cc15 |                   | Cc16 |                   | Cc17 |                   | Cc18 |                   | Cc19 |                   | Cc20 |                   | Cc21 |                   | Cc22 |                   | Cc23 |                   | Cc24 |                   | Cc25 |                   | Cc26 |                   | Cc27 |                   | Cc28 |                   | Cc29 |                   | Cc30 |                   | Cc31 |                   | Cc32 |                   | Cc33 |                   | Cc34 |                   | Cc35 |                   | Cc36 |                   | Cc37 |                   | Cc38 |                   | Cc39 |                   | Cc40 |                   | Cc41 |                   | Cc42 |      
+
+Instr.0 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.1 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.2 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.3 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> 
+
+Instr.4 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.5 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
+Instr.6 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> 
+
+Instr.7 :: |Pc| [ Fetch ] -> |If/Id| [ Decode ]  -> |Id/Ex| [ Execute ]  -> |Ex/Mo| [ Memory ] -> |Mo/Wb| [ Write ]  |<>|  
+
 ====================================================================================
-*************** Iteration no.36   ***************
+                --- Iteration no../ Clock Cycle 43 ----                 
  ==================  Completed DONE 👍🎇  ========================
 Finally GPR
 00000---0
